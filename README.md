@@ -1,60 +1,61 @@
 <p align="center">
-<img src="https://logos-world.net/wp-content/uploads/2021/05/Azure-New-Logo.png"/>
+<img src="https://wiki.hornbill.com/images/d/d6/Activedirectory_logo.png"/>
 </p>
 
-<h1>Microsoft Azure</h1>
-Azure is a platform for cloud computing and an online portal that you may use to access and administer Microsoft's cloud resources and services. 
-The creation of a virtual machine and an Azure account will be demonstrated in this guide.
+<h1>Active Directory</h1>
+Active Directory is a software bulit and maintained by Microsoft that centrally manage thousands of user accounts in a single place, allows you to manage devices on a large scale, and provieds a way to control access to resource on a large scale. This tutorial we're going to be learning how to deploying active directtory and creating useres.
 <h2>Tools and Requirements used </h2>
 
 - Computer with Internet Connection
-- Credit Card (Required for free Azure credits)
 - Microsoft Azure
-
+- Vitural Machines (Window Server 2022 and Windows 10)
+- Remote Desktop
+- Active Directory
 <h2>Configuration Steps</h2>
 
 
-<h3>Step 1: Create Azure Account</h3>
+<h3>Step 1: Create Resource Group and Virtual Machine </h3>
 
-
-Create an Azure account [here](https://azure.microsoft.com/en-us/free/).
 
 <p align="center">
-<img src="https://i.imgur.com/riowusG.png" height="80%" width="80%" alt="Azure Free Account"/>
+<img src="" height="80%" width="80%" alt="Azure Free Account"/>
   
 
 
-- Click on Start Free
-- Follow the prompt to create the account. 
-     - You must enter your credit card information, but in exchange, you will receive $200 in Azure credits that you have 30 days to utilize. Up until then, no charges will be applied.
-- Finish prompt, click on  Go to Azure Portal and you are all done and ready to start with Azure!
-     - You may also go to [portal.azure.com](https://www.portal.azure.com) to start
+- First going to create your Virtual Machine by naming (Windows Server 2022) "DC-1" and naming the other one "Client-1"
+   - Make sure that both of your VMs are in the same Vnet (you can check the topology with Networker Watcher. If you don't know how , you can learn and following this tutorial [here](https://github.com/haleypruittcc/ResourcegroupandHelloworld).
 
 
-
-<h3>Step 2: Create a Resource Group</h3>
-
-<p align="center">
-<img src="https://i.imgur.com/jUBnTKd.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/2vv6KAW.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-- Go to search bar at the top and search "resource group"
-- Select create resource group
-- Type any name for your the resource group and select the region thats near your area
-- Select review + create
-
-
-<h3>Step 3: Create a Storage Account within the Resource Group created </h3>
+<h3>Step 2: Ensure Connectivity between the client and Domain Controller </h3>
 
 <p align="center">
 <img src="https://i.imgur.com/5xs5hdE.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
-- Go to search bar and search "Storage Account"
-- Select Create Storage Account
-- You will select the same resource group you created in Step 2, the region, and create a name for the storage group  
-- Select review, then create.
+- Login to Client-1 with Remote Desktop and ping "-t ip address" 
+- Login to the Domain Controller and enable ICMPv4 on the local windows Firewall.
+- Go back to Client-1 to see the ping succeed.
 
+
+
+<h3>Step 3: Install Active Directory </h3>
+
+<p align="center">
+<img src="" height="70%" width="70%" alt="Azure Free Account"/> <img src="" height="70%" width="70%" alt="Azure Free Services"/>
+</p>
+
+- First, login to "DC-01" on remote desktop and install Active Directory Domain Services
+- Promote as a DC-1: Setup a new forest as "mydomain.com" or the name of your chose but make sure to remember it.
+- Restart and then log back to "DC-1" on remote desktop by the user name you create earlier.
+
+
+<h3>Step 4: Create an Admin and Normal User Account in AD </h3>
+
+<p align="center">
+<img src="https://i.imgur.com/5xs5hdE.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+
+- In Active Dircetory Users and Computers (ADUC), create an Organizational Unit (OU) called 
 
 
 
