@@ -17,12 +17,9 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <h3>Step 1: Create Resource Group and Virtual Machine </h3>
 
 
-<p align="center">
-<img src="" height="80%" width="80%" alt="Azure Free Account"/>
-  
-
-
 - First going to create your Virtual Machine by naming (Windows Server 2022) "DC-1" and naming the other one "Client-1"
+- Set Domain Controller’s NIC Private IP address to be static
+   - DC-1 -> Networking -> IP Confirgurations -> click on ipconfig-> change to static.
    - Make sure that both of your VMs are in the same Vnet (you can check the topology with Networker Watcher. If you don't know how , you can learn and following this tutorial [here](https://github.com/haleypruittcc/ResourcegroupandHelloworld).
 
 
@@ -32,9 +29,11 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/5xs5hdE.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
-- Login to Client-1 with Remote Desktop and ping "-t ip address" 
+- Login to Client-1 with Remote Desktop and ping "-t <private ip address>" <- from DC-1.
 - Login to the Domain Controller and enable ICMPv4 on the local windows Firewall.
+    - Start -> Windows Denfender Firewall with Advance security-> Inbound rules -> Enable.
 - Go back to Client-1 to see the ping succeed.
+   - Type Control + c to stop the traffic 
 
 
 
@@ -45,6 +44,7 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 </p>
 
 - First, login to "DC-01" on remote desktop and install Active Directory Domain Services
+    - Add roles -> Install Domain Services -> Click on Flag -> Promote.
 - Promote as a DC-1: Setup a new forest as "mydomain.com" or the name of your chose but make sure to remember it.
 - Restart and then log back to "DC-1" on remote desktop by the user name you create earlier.
 
@@ -57,8 +57,9 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 
 - In Active Dircetory Users and Computers (ADUC), create an Organizational Unit (OU) called "_EMPLOYEES" 
 - Next, Create a new OU named "_ADMINS" 
-- Create a new employees named of chose example: "Haley Pruitt" (same password as eariler) with username of "haley_admin".
+- Create a new employees named of chose example: "Haley Pruitt" (same password as eariler) with username of "haley_admin" in ADMIN.
 - Add "haley_admin" to the "Domain Admins" Security Group.
+   - Properties -> Member of -> Add-> Check names -> Apply
 - Log out the Remote Desktop connection to DC-1 and back in as "mydomain.com\haley_admin"
 - User haley_admin as domain account for now on.
 
@@ -70,9 +71,12 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/ZemzOKX.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/Z01V8dO.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/r71MgMU.png" height="70%" width="70%" alt="Azure Free Account"/> [<img src="https://i.imgur.com/kSumXSD.png" height="70%" width="70%" alt="Azure Free Account"/>] <img src="https://i.imgur.com/gSULz5Z.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
+    - Right click START -> System-> Rename PC-> Change-> Domain-> domain.com.
 - From the Azure Portal, set Client-1's DNS settings to the DC'S Private IP address.
+    - Client 1 -> DC-1  IP private -> Cient 1 -> Networking -> Client 1138 -> DNS Servers -> Custom-> IP private-> Save Client 
 - From the Azure Portal, restart Client-1 
 - Login to Client(Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers(ADUC) inside the "Computers" container on the root of the domain.
+    - Start "right click" -> System -> Rename -> Change-> Domain -> mydomain.com -> mydomain.com\haley_admin -> same password of eariler.
 - Create a new OU names "_CLIENTS" and drag Client-1 into there.
 
 
@@ -84,12 +88,13 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/I85PIqP.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
-- Log into Client-1 as mydomain.com\haley_admin and open system properties,
+- Log into Client-1 as "mydomain.com\haley_admin"  and open system properties,
 - Click "Remote Desktop"
+     - Select users that can remotely -> Add -> Domain Users -> OK
 - Allow "domain users" access to remote desktop
 - You can now log into Client-1 as a normal, non-administrative user now.
-
-  <h3>Step 6:Create a bunch of additional users and attempt to log into client-1 with one of the users </h3>
+     - DC-1 -> Active Direct UC -> mydomain -> Users -> Domain Users -> Members-> choose one of the user to log in.
+ <h3>Step 6:Create a bunch of additional users and attempt to log into client-1 with one of the users </h3>
   
 - Login to DC-1 as haley_admin
 - Open Powershell_ise as an administrator
