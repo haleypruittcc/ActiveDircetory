@@ -55,42 +55,51 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/5xs5hdE.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
-- In Active Dircetory Users and Computers (ADUC), create an Organizational Unit (OU) called 
+- In Active Dircetory Users and Computers (ADUC), create an Organizational Unit (OU) called "_EMPLOYEES" 
+- Next, Create a new OU named "_ADMINS" 
+- Create a new employees named of chose example: "Haley Pruitt" (same password as eariler) with username of "haley_admin".
+- Add "haley_admin" to the "Domain Admins" Security Group.
+- Log out the Remote Desktop connection to DC-1 and back in as "mydomain.com\haley_admin"
+- User haley_admin as domain account for now on.
 
 
 
-<h3>Step 4: Create a Container and a file </h3>
+<h3>Step 5: Join Client-1 to your domain (mydomain.com) </h3>
  
  <p align="center">
 <img src="https://i.imgur.com/ZemzOKX.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/Z01V8dO.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/r71MgMU.png" height="70%" width="70%" alt="Azure Free Account"/> [<img src="https://i.imgur.com/kSumXSD.png" height="70%" width="70%" alt="Azure Free Account"/>] <img src="https://i.imgur.com/gSULz5Z.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
-- Click "Container" by scrolling down on the side of the Storage Account you created in Step 3.
-- Create a "New Container" and type in the name of choice and select "Private (no anonymous access)", Click on Create.
-- Open Notepad on your computer, type "Hello World," and then save the file to your desktop.
-- Back to Container , Click "Upload" and Select your file form the desktop.
-- Click on "View/edit" on your file you created and your file should appear. 
-- Try editing the file. 
-   - For an example type "My Edit" on the next line.  
-- Click on "Save" and "Download" the file.
-- Open back up the file and observe the change!
+- From the Azure Portal, set Client-1's DNS settings to the DC'S Private IP address.
+- From the Azure Portal, restart Client-1 
+- Login to Client(Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers(ADUC) inside the "Computers" container on the root of the domain.
+- Create a new OU names "_CLIENTS" and drag Client-1 into there.
 
 
 
-<h3>Step 5: How to Delete Resource Group </h3>
+<h3>Step 5: Setup Remote Desktop for non-administrative users on Client-1 </h3>
 
 
 <p align="center">
 <img src="https://i.imgur.com/I85PIqP.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
- - Open your "Resource Group" in Step 2 
- - Click on "Delete Resource Group" 
- - Type the name of the Resource Group and Click "Delete".
-   Finish!
+- Log into Client-1 as mydomain.com\haley_admin and open system properties,
+- Click "Remote Desktop"
+- Allow "domain users" access to remote desktop
+- You can now log into Client-1 as a normal, non-administrative user now.
+
+  <h3>Step 6:Create a bunch of additional users and attempt to log into client-1 with one of the users </h3>
   
-  Tip: Delete your Resource Group will save your free $200 credits,SO MAKE SURE TO DELETE YOUR RESCOUCRE GROUPS AFTER YOU'RE DONE!  
+- Login to DC-1 as haley_admin
+- Open Powershell_ise as an administrator
+- Create a new File and paste the contents of the script into it by getting it [here](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
+- Run script and observe the accounts being created
+   - When finished, open ADUC and observe the accounts in the appropriate OU.
+- Now, attempt to log into Client-1 with one of the accounts( Make sure to take note of the password in the script)
+  
+  
 
 
 
-🎉Congratulations! You have created your first Resoucre Group within Azure!🎉
+
