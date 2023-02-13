@@ -71,7 +71,7 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/ZemzOKX.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/Z01V8dO.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/r71MgMU.png" height="70%" width="70%" alt="Azure Free Account"/> [<img src="https://i.imgur.com/kSumXSD.png" height="70%" width="70%" alt="Azure Free Account"/>] <img src="https://i.imgur.com/gSULz5Z.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
-    - Right click START -> System-> Rename PC-> Change-> Domain-> domain.com.
+- Right click START -> System-> Rename PC-> Change-> Domain-> domain.com.
 - From the Azure Portal, set Client-1's DNS settings to the DC'S Private IP address.
     - Client 1 -> DC-1  IP private -> Cient 1 -> Networking -> Client 1138 -> DNS Servers -> Custom-> IP private-> Save Client 
 - From the Azure Portal, restart Client-1 
