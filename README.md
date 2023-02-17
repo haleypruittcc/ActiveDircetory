@@ -48,8 +48,17 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <h3>Step 3: Install Active Directory </h3>
 
 <p align="center">
-<img src="" height="70%" width="70%" alt="Azure Free Account"/> <img src="" height="70%" width="70%" alt="Azure Free Services"/>
+<img src="https://i.imgur.com/zWvVm9x.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
+
+<p align="center">
+<img src="https://i.imgur.com/FlVk8ja.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="" height="70%" width="70%" alt="Azure Free Services"/>
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/VfxHssz.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="" height="70%" width="70%" alt="Azure Free Services"/>
+</p>
+
 
 - First, login to "DC-01" on remote desktop and install Active Directory Domain Services
     - Add roles -> Install Domain Services -> Click on Flag -> Promote.
