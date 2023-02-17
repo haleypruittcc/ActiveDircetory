@@ -53,10 +53,9 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 
 <p align="center">
 <img src="https://i.imgur.com/FlVk8ja.png" height="70%" width="70%" alt="Azure Free Account"/> 
-
-<p align="center">
-<img src="https://i.imgur.com/VfxHssz.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
+
+
 
 
 - First, login to "DC-01" on remote desktop and install Active Directory Domain Services
