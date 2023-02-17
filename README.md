@@ -26,7 +26,15 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <h3>Step 2: Ensure Connectivity between the client and Domain Controller </h3>
 
 <p align="center">
-<img src="https://i.imgur.com/5xs5hdE.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/eKOlJrk.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/lmaHiao.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/BUTOaPd.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
 - Login to Client-1 with Remote Desktop and ping "-t <private ip address>" <- from DC-1.
