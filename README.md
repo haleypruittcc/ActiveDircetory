@@ -98,7 +98,7 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <h3>Step 5: Join Client-1 to your domain (mydomain.com) </h3>
  
  <p align="center">
-<img src="https://i.imgur.com/slCrRoT.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/J0QF6ux.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/KMA1hwg.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/jYyTHCV.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/KMA1hwg.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/Q66RxNa.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/slCrRoT.png" height="70%" width="70%" alt="Azure Free Account"/>
 </p>
  
 - On Remote Desktop on Client-1 , Right click START -> System-> Rename PC-> Change-> Domain-> domain.com.
@@ -111,11 +111,11 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 
 
 
-<h3>Step 5: Setup Remote Desktop for non-administrative users on Client-1 </h3>
+<h3>Step 6: Setup Remote Desktop for non-administrative users on Client-1 </h3>
 
 
 <p align="center">
-<img src="https://i.imgur.com/I85PIqP.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/qhZEwD4.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
 - Log into Client-01 as "mydomain.com\haley_admin"  and open system properties,
@@ -126,8 +126,20 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
      - DC-1 -> Active Direct UC -> mydomain -> Users -> Domain Users -> Members-> choose one of the user to log in which its going to be on our next step.
    
    
- <h3>Step 6:Create a bunch of additional users and attempt to log into client-1 with one of the users </h3>
+ <h3>Step 7:Create a bunch of additional users and attempt to log into client-1 with one of the users </h3>
   
+<p align="center">
+<img src="https://i.imgur.com/YAlH82v.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>  
+   
+ <p align="center">
+<img src="https://i.imgur.com/rzTBPH3.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+   
+ <p align="center">
+<img src="https://i.imgur.com/jUpi4T3.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+   
 - Login to DC-1 as haley_admin
 - Open Powershell_ise as an administrator
 - Create a new File and paste the contents of the script into it by getting it [here](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
