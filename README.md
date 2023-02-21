@@ -148,7 +148,7 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 - Now, attempt to log into Client-1 with one of the accounts( Make sure to take note of the password in the script)
   
   
-
+🎉Congratulation! You finally done deploying active directory directory and creating users .!🎉 Next tutorial ,Building Instuition for DNS  by clicking [here](https://github.com/haleypruittcc/Building-Instuition-for-DNS)
 
 
 
