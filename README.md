@@ -55,7 +55,9 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/FlVk8ja.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
-
+<p align="center">
+<img src="https://i.imgur.com/x9Ts5HT.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
 
 
 - First, login to "DC-01" on remote desktop and install Active Directory Domain Services
@@ -67,9 +69,22 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <h3>Step 4: Create an Admin and Normal User Account in AD </h3>
 
 <p align="center">
-<img src="https://i.imgur.com/5xs5hdE.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/YmWDiQO.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
 
+ <p align="center">
+<img src="https://i.imgur.com/wWFNVBT.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+   
+   
+ <p align="center">
+<img src="https://i.imgur.com/ofqKGpX.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+   
+ <p align="center">
+<img src="https://i.imgur.com/bmT4Vx5.png" height="70%" width="70%" alt="Azure Free Account"/> 
+</p>
+   
 - In Active Dircetory Users and Computers (ADUC), create an Organizational Unit (OU) called "_EMPLOYEES" 
 - Next, Create a new OU named "_ADMINS" 
 - Create a new employees named of chose example: "Haley Pruitt" (same password as eariler) with username of "haley_admin" in ADMIN.
@@ -83,10 +98,10 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <h3>Step 5: Join Client-1 to your domain (mydomain.com) </h3>
  
  <p align="center">
-<img src="https://i.imgur.com/ZemzOKX.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/Z01V8dO.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/r71MgMU.png" height="70%" width="70%" alt="Azure Free Account"/> [<img src="https://i.imgur.com/kSumXSD.png" height="70%" width="70%" alt="Azure Free Account"/>] <img src="https://i.imgur.com/gSULz5Z.png" height="70%" width="70%" alt="Azure Free Account"/> 
+<img src="https://i.imgur.com/slCrRoT.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/J0QF6ux.png" height="70%" width="70%" alt="Azure Free Services"/> <img src="https://i.imgur.com/KMA1hwg.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
-- Right click START -> System-> Rename PC-> Change-> Domain-> domain.com.
+- On Remote Desktop on Client-1 , Right click START -> System-> Rename PC-> Change-> Domain-> domain.com.
 - From the Azure Portal, set Client-1's DNS settings to the DC'S Private IP address.
     - Client 1 -> DC-1  IP private -> Cient 1 -> Networking -> Client 1138 -> DNS Servers -> Custom-> IP private-> Save Client 
 - From the Azure Portal, restart Client-1 
@@ -103,12 +118,14 @@ Active Directory is a software bulit and maintained by Microsoft that centrally 
 <img src="https://i.imgur.com/I85PIqP.png" height="70%" width="70%" alt="Azure Free Account"/> 
 </p>
  
-- Log into Client-1 as "mydomain.com\haley_admin"  and open system properties,
+- Log into Client-01 as "mydomain.com\haley_admin"  and open system properties,
 - Click "Remote Desktop"
      - Select users that can remotely -> Add -> Domain Users -> OK
 - Allow "domain users" access to remote desktop
-- You can now log into Client-1 as a normal, non-administrative user now.
-     - DC-1 -> Active Direct UC -> mydomain -> Users -> Domain Users -> Members-> choose one of the user to log in.
+     - You can now log into Client-1 as a normal, non-administrative user now.
+     - DC-1 -> Active Direct UC -> mydomain -> Users -> Domain Users -> Members-> choose one of the user to log in which its going to be on our next step.
+   
+   
  <h3>Step 6:Create a bunch of additional users and attempt to log into client-1 with one of the users </h3>
   
 - Login to DC-1 as haley_admin
